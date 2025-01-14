@@ -4,6 +4,29 @@ import * as fs from 'fs';
 import * as path from 'path';
 
 /**
+ * Get a list of folder names in a directory.
+ * @param dirPath - The path to the directory.
+ * @returns - An array of folder names.
+ */
+const getFolderNames = (dirPath: string): string[] => {
+  if (!fs.existsSync(dirPath)) {
+    console.error(`Directory not found: ${dirPath}`);
+    return [];
+  }
+
+  // Read the contents of the directory
+  const items = fs.readdirSync(dirPath);
+
+  // Filter and return only directories
+  const folders = items.filter(item => {
+    const itemPath = path.join(dirPath, item);
+    return fs.statSync(itemPath).isDirectory();
+  });
+
+  return folders;
+};
+
+/**
  * Copies a TypeScript file from the source to the destination.
  * @param srcPath - The path to the source TypeScript file.
  * @param destDir - The directory where the file will be copied.
@@ -107,4 +130,4 @@ const modifyJson = (
   console.log(`${logTemplate} - package.json updated successfully!`);
 };
 
-export {copyFile, copyFolder, modifyJson};
+export {copyFile, copyFolder, modifyJson, getFolderNames};

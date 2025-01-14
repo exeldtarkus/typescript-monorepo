@@ -1,8 +1,12 @@
 {
-  "name": "@services/ms-user",
+  "name": "@services/ms-auth",
   "version": "1.0.0",
   "description": "",
   "main": "build/index.js",
+  "types": "build/index.d.ts",
+  "files": [
+    "build"
+  ],
   "scripts": {
     "build": "tsc",
     "lint": "gts lint",
@@ -11,9 +15,8 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "@lib/core-logger": "^1.0.0",
-    "gts": "^6.0.2",
-    "typescript": "^5.7.3"
+  "devDependencies": {
+    "typescript": "^5.7.3",
+    "gts": "^6.0.2"
   }
 }

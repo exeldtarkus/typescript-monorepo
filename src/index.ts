@@ -1,4 +1,4 @@
-import {copyFolder, modifyJson} from './fs_helper';
+import {copyFolder, getFolderNames, modifyJson} from './fs_helper';
 import {question, close} from './readline_helper';
 
 let alreadyRunAgain = false;
@@ -55,6 +55,33 @@ const main = async () => {
 
     case 2: {
       const serviceName = await question('[Service] - Enter Name :');
+
+      const folderPath = copyFolder(
+        './src/example-file',
+        `./services/${serviceName}`,
+      );
+
+      modifyJson(
+        folderPath,
+        {
+          name: `@services/${serviceName}`,
+        },
+        'package.json',
+      );
+
+      const listLibrary = getFolderNames('./lib');
+
+      const mapReferencesLib = listLibrary.map(item => {
+        return {path: `../../${item}`};
+      });
+
+      modifyJson(
+        folderPath,
+        {
+          references: mapReferencesLib,
+        },
+        'tsconfig.json',
+      );
 
       await runningAgain();
       break;
