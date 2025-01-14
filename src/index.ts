@@ -1,4 +1,5 @@
-import {question} from './readline_helper';
+import {copyFolder, modifyJson} from './fs_helper';
+import {question, close} from './readline_helper';
 
 let alreadyRunAgain = false;
 
@@ -11,12 +12,10 @@ const runningAgain = async () => {
   }
 
   if (['N', 'n', 'NO', 'No', 'no'].includes(runAgain)) {
-    // return close('Bye...');
-    return '';
+    return close('Bye...');
   }
 
   await runningAgain();
-  return '';
 };
 
 const main = async () => {
@@ -25,17 +24,46 @@ const main = async () => {
   await question('Migrate Consul - [Press Any Key to Continue] ...');
 
   const questionOptions = `
-  What would you like to create?  
+  What would you like to create ?
   1. Library
   2. Service
-  Please select your choice: 
-  `;
+  Please select your choice: `;
 
   const optionsKey = await question(questionOptions);
 
   if (isNaN(optionsKey)) {
     console.log('Key Not Interger');
     await runningAgain();
+  }
+
+  switch (Number(optionsKey)) {
+    case 1: {
+      const libName = await question('[Library] - Enter Name :');
+      const folderPath = copyFolder('./src/example-file', `./lib/${libName}`);
+
+      modifyJson(
+        folderPath,
+        {
+          name: `@lib/${libName}`,
+        },
+        'package.json',
+      );
+
+      await runningAgain();
+      break;
+    }
+
+    case 2: {
+      const serviceName = await question('[Service] - Enter Name :');
+
+      await runningAgain();
+      break;
+    }
+
+    default:
+      console.log('Key Not Match');
+      await runningAgain();
+      break;
   }
 
   return false;
