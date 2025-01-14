@@ -1,0 +1,30 @@
+{
+  "extends": "./node_modules/gts/tsconfig-google.json",
+  "compilerOptions": {
+    "rootDir": ".",
+    "outDir": "build",
+    "esModuleInterop": true,
+    "lib": ["es2016", "dom"],
+    "resolveJsonModule": true,
+    "strict": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "declaration": true,
+    "baseUrl": ".",
+    "paths": {
+      "@lib/*": ["lib/*/src"],
+      "@services/*": ["services/*/src"]
+    }
+  },
+  "include": [
+    "src/**/*.ts",
+    "test/**/*.ts",
+    "lib/**/*.ts",
+    "services/**/*.ts"
+  ],
+  // "references": [
+  //   { "path": "./lib/core-logger" },
+  //   // { "path": "./lib/core-server" },
+  //   { "path": "./services/ms-user" }
+  // ]
+}

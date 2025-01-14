@@ -1,0 +1,29 @@
+{
+  "name": "@lib/core-logger",
+  "version": "1.0.0",
+  "description": "",
+  "main": "build/index.js",
+  "types": "build/index.d.ts",
+  "files": [
+    "build"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "lint": "gts lint",
+    "fix": "gts fix"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/common-tags": "^1.8.4",
+    "typescript": "^5.7.3"
+  },
+  "dependencies": {
+    "chalk": "^4.1.2",
+    "common-tags": "^1.8.2",
+    "dotenv": "^16.4.7",
+    "gts": "^6.0.2",
+    "moment": "^2.30.1"
+  }
+}
