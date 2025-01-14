@@ -1,33 +1,44 @@
-console.log('Try npm run lint/fix!');
+import {question} from './readline_helper';
 
-const longString =
-  'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ut aliquet diam.';
+let alreadyRunAgain = false;
 
-const trailing = 'Semicolon';
+const runningAgain = async () => {
+  const runAgain = await question('\nRunning Again ? [y/N]: ');
 
-const why = {am: 'I tabbed?'};
-
-const iWish = "I didn't have a trailing space...";
-
-const sicilian = true;
-
-const vizzini = sicilian ? !sicilian : sicilian;
-
-const re = /foo {3}bar/;
-
-export function doSomeStuff(
-  withThis: string,
-  andThat: string,
-  andThose: string[],
-) {
-  //function on one line
-  if (!andThose.length) {
-    return false;
+  if (['Y', 'y', 'YES', 'Yes', 'yes'].includes(runAgain)) {
+    alreadyRunAgain = true;
+    return main();
   }
-  console.log(withThis);
-  console.log(andThat);
-  console.dir(andThose);
-  console.log(longString, trailing, why, iWish, vizzini, re);
-  return;
-}
-// TODO: more examples
+
+  if (['N', 'n', 'NO', 'No', 'no'].includes(runAgain)) {
+    // return close('Bye...');
+    return '';
+  }
+
+  await runningAgain();
+  return '';
+};
+
+const main = async () => {
+  // await runningAgain();
+
+  await question('Migrate Consul - [Press Any Key to Continue] ...');
+
+  const questionOptions = `
+  What would you like to create?  
+  1. Library
+  2. Service
+  Please select your choice: 
+  `;
+
+  const optionsKey = await question(questionOptions);
+
+  if (isNaN(optionsKey)) {
+    console.log('Key Not Interger');
+    await runningAgain();
+  }
+
+  return false;
+};
+
+main().catch(err => console.error('Error: ', err));

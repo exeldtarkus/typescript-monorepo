@@ -1,0 +1,14 @@
+{
+  "extends": "./node_modules/gts/",
+  "parserOptions": {
+    "project": [
+      "tsconfig.json",
+      "lib/core-logger/tsconfig.json",
+      "services/ms-user/tsconfig.json"
+    ]
+  },
+  "ignorePatterns": [
+    "node_modules",
+    "build"
+  ]
+}

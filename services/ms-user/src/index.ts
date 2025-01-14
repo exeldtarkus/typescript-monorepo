@@ -1,3 +1,3 @@
-import logger, {ELogLevels, ELogStage} from '@lib/core-logger';
+import logger, {ELogStage} from '@lib/core-logger';
 
-logger.info("test logger xl");
+logger.info(`${ELogStage.start} - test logger xl`);
