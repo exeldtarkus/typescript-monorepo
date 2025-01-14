@@ -9,6 +9,9 @@ dist/
 build/
 .lh
 
+# Compiled ts config files
+*.tsbuildinfo
+
 # Compiled Java class files
 *.class
 
