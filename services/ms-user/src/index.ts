@@ -1,17 +1,11 @@
-// import express, {Request, Response} from '@lib/core-server';
+import app from '@lib/core-server';
+import logger from '@lib/core-logger';
 
-// const router = express.Router();
+// dotenv.config();
+const port = 8094;
 
-// import {apiRouter} from './api/v1/api_router';
-// import {apiRouterV2} from './api/v2/api_router';
+app.listen(port, () => {
+  logger.info(`[ms-user] - http://localhost:${port}`);
+});
 
-// import mainMiddleware from '../app/http/middleware/main_middleware';
-
-// router.get('/', (req: Request, res: Response) => {
-//   res.json({title: 'Content Service'});
-// });
-
-// router.use('/api', mainMiddleware, apiRouter);
-// router.use('/api/v2', mainMiddleware, apiRouterV2);
-
-// export {router as indexRouter};
+export default app;
