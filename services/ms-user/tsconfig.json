@@ -9,6 +9,7 @@
   "include": ["src/**/*.ts"],
   "exclude": ["node_modules", "dist"],
   "references": [
-    { "path": "../../lib/core-logger" }
+    { "path": "../../lib/core-logger" },
+    { "path": "../../lib/core-server" }
   ]
 }

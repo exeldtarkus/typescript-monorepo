@@ -4,6 +4,7 @@
   "description": "",
   "main": "build/index.js",
   "scripts": {
+    "dev": "npx nodemon --delay 1000ms ./src/index.ts\n",
     "build": "tsc",
     "lint": "gts lint",
     "fix": "gts fix"
@@ -12,6 +13,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "nodemon": "^3.1.9",
     "@lib/core-logger": "^1.0.0",
     "gts": "^6.0.2",
     "typescript": "^5.7.3"

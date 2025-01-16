@@ -14,7 +14,11 @@
     "dist"
   ],
   "references": [
-    {"path": "../../core-logger"},
-    {"path": "../../core-server"}
+    {
+      "path": "../../core-logger"
+    },
+    {
+      "path": "../../core-server"
+    }
   ]
 }

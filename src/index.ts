@@ -65,6 +65,17 @@ const main = async () => {
         folderPath,
         {
           name: `@services/${serviceName}`,
+          scripts: {
+            dev: 'npx nodemon --delay 1000ms ./src/index.ts\n',
+            build: 'tsc',
+            lint: 'gts lint',
+            fix: 'gts fix',
+          },
+          devDependencies: {
+            typescript: '^5.7.3',
+            gts: '^6.0.2',
+            nodemon: '^3.1.9',
+          },
         },
         'package.json',
       );
