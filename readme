@@ -1,3 +1,0 @@
-install lib example
-
-npm install @lib/core-logger --workspace=services/core-logger 

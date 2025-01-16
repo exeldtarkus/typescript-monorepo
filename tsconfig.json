@@ -22,9 +22,4 @@
     "lib/**/*.ts",
     "services/**/*.ts"
   ],
-  // "references": [
-  //   { "path": "./lib/core-logger" },
-  //   // { "path": "./lib/core-server" },
-  //   { "path": "./services/ms-user" }
-  // ]
 }

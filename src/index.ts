@@ -66,6 +66,7 @@ const main = async () => {
         {
           name: `@services/${serviceName}`,
           scripts: {
+            start: 'node build/index.js',
             dev: 'npx nodemon --delay 1000ms ./src/index.ts\n',
             build: 'tsc',
             lint: 'gts lint',
