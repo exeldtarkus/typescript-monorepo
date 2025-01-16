@@ -15,10 +15,10 @@
   ],
   "references": [
     {
-      "path": "../../core-logger"
+      "path": "../../lib/core-logger"
     },
     {
-      "path": "../../core-server"
+      "path": "../../lib/core-server"
     }
   ]
 }
