@@ -83,7 +83,7 @@ const main = async () => {
       const listLibrary = getFolderNames('./lib');
 
       const mapReferencesLib = listLibrary.map(item => {
-        return {path: `../../${item}`};
+        return {path: `../../lib/${item}`};
       });
 
       modifyJson(
